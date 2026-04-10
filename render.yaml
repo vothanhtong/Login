@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: login
+    runtime: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+    envVars:
+      - key: MONGODB_URI
+        sync: false # Bạn sẽ nhập thủ công trên Render dashboard
+      - key: JWT_SECRET
+        generateValue: true # Render sẽ tự tạo một mã bí mật cho bạn
+      - key: NODE_ENV
+        value: production
